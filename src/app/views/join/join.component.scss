@@ -1,0 +1,37 @@
+.container-fluid{
+  min-height: 100%;
+    height:auto !important; /* cross-browser */
+    height: 100%; /* cross-browser */
+}
+.mainjoin {
+  padding-top: 12%;
+  padding-left: 20%;
+  min-height: 100%;
+    height:auto !important; 
+    height: 100%; 
+ // padding-bottom: 300px;
+  //background: linear-gradient(to right, rgba(255, 0, 0, 0), #213a50);
+
+}
+.card .header1 {
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.chip {
+  display: inline-block;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+}
+
+.chip img {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}

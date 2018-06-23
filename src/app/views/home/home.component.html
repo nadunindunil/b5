@@ -1,0 +1,115 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="header" style="background-color: #44c5ac;
+                        border-bottom: 2px solid #44c5ac;
+                        border-radius: 5px;">
+                        <h4 class="title" style="white-space: nowrap; color: #fff">Analyst Suggesions</h4>
+                        <p class="category" style=" color: #fff">Here are the recommendations</p>
+                    </div>
+                    <div class="content table-responsive table-full-width" style="max-height: 500px; overflow: auto;">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th *ngFor="let cell of tableData1.headerRow" style="font-weight: bold;color: #484848;font-size: 10pt;">{{ cell }}</th>
+                                </tr>
+                            </thead>
+                            <tbody style="height: 500px; overflow: auto;">
+                                <tr *ngFor="let row of rowData | async">
+                                    <td style="color:#44c5ac">{{row.action}}</td>
+                                    <td>{{row.duration}}</td>
+                                    <td style="color: #3f8e19; font-size: 10pt;">{{row.name}}</td>
+                                    <!-- <td>{{row.rectime}}</td>-->
+                                    <td>{{row.type}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="header" style="background-color: #F94C4C;
+                        border-bottom: 2px solid #F94C4C;
+                        border-radius: 5px;">
+                        <h4 class="title" style="color: #fff">Company Stock Prices</h4>
+                        <p class="category" style="color: #fff">Current Round: {{currentRound}}</p>
+                        <p *ngIf="userBalance | async; let userBalance" class="category" style="color: #fff">account balance: {{userBalance.balace}}</p>
+                        <app-spinner *ngIf="spinnerbuy" style="padding-left: 30%;"></app-spinner>
+                    </div>
+                    <div *ngIf="rowData2" class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            
+                            <thead>
+                                <tr>
+                                    <th *ngFor="let cell of tableData2.headerRow" style="font-weight: bold;color: #484848;font-size: 10pt;">{{ cell }}</th>
+                                </tr>
+                            </thead>
+                            <tbody style="height: 500px; overflow: auto;">
+                                <tr *ngFor="let row of rowData2">
+                                    <td>{{row.company}}</td>
+                                    <td>{{row.sector}}</td>
+                                    <td style="color: #F94C4C; font-size: 14pt;">{{row.price}}</td>
+                                    <td>
+                                        
+                                        <button (click)="toggleShowBuy(row.price, row.company)" class="btn btn-success btn-sm">Buy</button>
+                                    </td>
+                                    <!-- <td>
+                                        
+                                        <button (click)="buyShare(row.price, row.company)" class="btn btn-success btn-sm">Buy</button>
+                                    </td> -->
+                                    <!-- <td ><button class="btn btn-warning btn-xs">Sell</button></td> -->
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header" style="background-color: #FFA500;
+                        border-bottom: 2px solid #FFA500;
+                        border-radius: 5px;">
+                        <h4 class="title" style="color: #fff">My Stock Prices</h4>
+                        <p class="category" style="color: #fff">Current Round: {{currentRound}}</p>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                             <app-spinner *ngIf="spinnersell"></app-spinner>
+                            <thead>
+                                <tr>
+                                    <th *ngFor="let cell of tableData3.headerRow" style="font-weight: bold;color: #484848;font-size: 10pt;">{{ cell }}</th>
+                                </tr>
+                            </thead>
+                            <tbody style="height: 500px; overflow: auto;">
+                               
+                                <tr *ngFor="let row of portfolio | async">
+                                    <td>{{row.stock}}</td>
+                                    <td>{{row.quantity}}</td>
+                                    <!-- <td>
+                                        
+                                        <button (click)="sellShare(row.price, row.stock)" class="btn btn-danger btn-xs">Sell</button>
+                                    </td> -->
+
+                                    <td>
+                                        
+                                        <button (click)="toggleShowSell(row.price, row.stock, row.quantity)" class="btn btn-danger btn-sm">Sell</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

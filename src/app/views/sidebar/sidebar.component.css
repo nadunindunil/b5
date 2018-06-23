@@ -1,0 +1,11 @@
+.sidebar .sidebar-wrapper, .bootstrap-navbar .sidebar-wrapper {
+    position: relative;
+    max-height: calc(100vh - 75px);
+    min-height: 100%;
+    overflow: auto;
+    width: 260px;
+    z-index: 4;
+    padding-bottom: 75px;
+    background-color:#2A3F54;
+    background: linear-gradient(317.35deg, #213a50 0%, rgb(10, 10, 10) 100%);
+}
